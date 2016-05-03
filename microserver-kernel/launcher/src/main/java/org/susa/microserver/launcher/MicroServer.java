@@ -1,7 +1,6 @@
 package org.susa.microserver.launcher;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -64,20 +63,13 @@ public class MicroServer extends Thread {
         InputStream inputStream = conectedSocket.getInputStream();
         if (inputStream != null) {
             readInput(inputStream);
+            conectedSocket.shutdownInput();
         }
         OutputStream outputStream = conectedSocket.getOutputStream();
         if (outputStream != null) {
             writeOutput(outputStream);
+            conectedSocket.shutdownOutput();
         }
-
-        try {
-            inputStream.close();
-            outputStream.close();
-            conectedSocket.close();
-        } catch (IOException e) {
-            log.log(Level.SEVERE, " IO exception occured while closing the socket connection  ", e);
-        }
-
     }
 
     /**
