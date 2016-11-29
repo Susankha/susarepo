@@ -1,3 +1,3 @@
 # susarepo
 
-Java multithreaded http server
+Java multithread http server
