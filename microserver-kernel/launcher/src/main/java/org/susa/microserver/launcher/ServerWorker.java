@@ -81,7 +81,7 @@ public class ServerWorker implements Runnable {
         try {
             long currentTime = System.currentTimeMillis();
             outputStream
-                    .write(("\"HTTP/1.1 200 OK\\n\\n<html><body>\" " + " Welcome to the Wso2 !!! "+currentTime + "</body></html>")
+                    .write(("HTTP/1.1 200 OK\r\nServer: nginx/1.13.12\r\nDate: Wed, 29 May 2019 14:49:29 GMT\r\nConnection: keep-alive\r\ncpaas-transaction-id: test777108\r\n\r\n")
                             .getBytes());
             outputStream.flush();
         } catch (IOException e) {
