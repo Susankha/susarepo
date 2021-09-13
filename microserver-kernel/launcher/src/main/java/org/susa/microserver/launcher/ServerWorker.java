@@ -22,7 +22,8 @@ public class ServerWorker implements Runnable {
         this.socket = socket;
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         try{
             log.info("Starting worker Thread = "+Thread.currentThread().getId());
             processClientRequest(this.socket);
@@ -69,7 +70,6 @@ public class ServerWorker implements Runnable {
         } catch (IOException e) {
             log.log(Level.SEVERE, " IO exception occured while processing the request  ", e);
         }
-
     }
 
     /**
